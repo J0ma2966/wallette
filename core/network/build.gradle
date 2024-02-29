@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.arshapshap.common'
+    namespace 'com.arshapshap.core.network'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {
@@ -13,6 +13,8 @@ android {
         targetSdk rootProject.targetSdkVersion
         versionCode rootProject.versionCode
         versionName rootProject.versionName
+
+        buildConfigField("String", "WALLETTE_BASE_URL", WALLETTE_BASE_URL)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -39,12 +41,14 @@ android {
 
 dependencies {
 
+    implementation project(path: ':core:common')
+
     implementation coreKtxDep
     implementation androidDep
-    implementation materialDep
-    implementation fragmentKtxDep
-    implementation viewBindingDelegateDep
+
+    implementation retrofitDep
     implementation gsonConverterDep
+
     implementation daggerDep
     implementation daggerAndroidDep
     kapt daggerKaptDep

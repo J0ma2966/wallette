@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.arshapshap.core_db'
+    namespace 'com.arshapshap.feature.auth'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {
@@ -39,15 +39,16 @@ android {
 
 dependencies {
 
-    implementation project(path: ':common')
+    implementation project(path: ':core:common')
+    implementation project(path: ':core:data')
 
     implementation coreKtxDep
     implementation androidDep
-
-    implementation roomDep
-    implementation roomKtxDep
-    kapt roomKaptDep
-
+    implementation materialDep
+    implementation viewBindingDelegateDep
+    implementation navigationFragmentDep
+    implementation retrofitDep
+    implementation gsonConverterDep
     implementation daggerDep
     implementation daggerAndroidDep
     kapt daggerKaptDep
