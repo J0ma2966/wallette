@@ -1,7 +1,7 @@
 package com.arshapshap.wallette.di.app
 
-import com.arshapshap.common.di.CommonApi
-import com.arshapshap.common.di.scopes.ApplicationScope
+import com.arshapshap.wallette.core.common.di.CommonApi
+import com.arshapshap.wallette.core.common.di.scopes.ApplicationScope
 import com.arshapshap.wallette.App
 import com.arshapshap.wallette.di.main.MainDependencies
 import dagger.BindsInstance

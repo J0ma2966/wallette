@@ -4,15 +4,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
-import com.arshapshap.common.domain.models.*
-import com.arshapshap.common.domain.models.enums.TransactionType
-import com.arshapshap.feature_auth.presentation.screen.AuthorizationRouter
-import com.arshapshap.feature_settings.presentation.SettingsRouter
-import com.arshapshap.feature_settings.presentation.screen.singleAccount.SingleAccountFragment
-import com.arshapshap.feature_settings.presentation.screen.singleCategory.SingleCategoryFragment
-import com.arshapshap.feature_settings.presentation.screen.singleTag.SingleTagFragment
-import com.arshapshap.feature_statistics_impl.presentation.StatisticsRouter
-import com.arshapshap.feature_statistics_impl.presentation.screen.singleTransaction.SingleTransactionFragment
+import com.arshapshap.wallette.core.common.domain.models.*
+import com.arshapshap.wallette.core.common.domain.models.enums.TransactionType
+import com.arshapshap.wallette.feature.auth.presentation.screen.AuthorizationRouter
+import com.arshapshap.wallette.feature.settings.presentation.SettingsRouter
+import com.arshapshap.wallette.feature.settings.presentation.screen.singleAccount.SingleAccountFragment
+import com.arshapshap.wallette.feature.settings.presentation.screen.singleCategory.SingleCategoryFragment
+import com.arshapshap.wallette.feature.settings.presentation.screen.singleTag.SingleTagFragment
+import com.arshapshap.wallette.feature.statistics.presentation.StatisticsRouter
+import com.arshapshap.wallette.feature.statistics.presentation.screen.singleTransaction.SingleTransactionFragment
 import com.arshapshap.wallette.R
 import com.arshapshap.wallette.presentation.MainRouter
 

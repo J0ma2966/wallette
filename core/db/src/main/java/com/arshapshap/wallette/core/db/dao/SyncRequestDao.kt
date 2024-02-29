@@ -1,0 +1,17 @@
+package com.arshapshap.wallette.core.db.dao
+
+import androidx.room.*
+import com.arshapshap.wallette.core.db.models.SyncRequest
+
+@Dao
+abstract class SyncRequestDao {
+
+    @Insert
+    abstract suspend fun addRequest(syncRequest: SyncRequest): Long
+
+    @Delete
+    abstract suspend fun deleteRequest(syncRequest: SyncRequest)
+
+    @Query("SELECT * FROM SyncRequests")
+    abstract suspend fun getRequests(): List<SyncRequest>
+}

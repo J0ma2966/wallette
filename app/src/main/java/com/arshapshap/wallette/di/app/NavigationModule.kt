@@ -1,9 +1,9 @@
 package com.arshapshap.wallette.di.app
 
-import com.arshapshap.common.di.scopes.ApplicationScope
-import com.arshapshap.feature_auth.presentation.screen.AuthorizationRouter
-import com.arshapshap.feature_settings.presentation.SettingsRouter
-import com.arshapshap.feature_statistics_impl.presentation.StatisticsRouter
+import com.arshapshap.wallette.core.common.di.scopes.ApplicationScope
+import com.arshapshap.wallette.feature.auth.presentation.screen.AuthorizationRouter
+import com.arshapshap.wallette.feature.settings.presentation.SettingsRouter
+import com.arshapshap.wallette.feature.statistics.presentation.StatisticsRouter
 import com.arshapshap.wallette.navigation.Navigator
 import dagger.Module
 import dagger.Provides

@@ -2,7 +2,7 @@ package com.arshapshap.wallette.di.app
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.arshapshap.common.di.scopes.ApplicationScope
+import com.arshapshap.wallette.core.common.di.scopes.ApplicationScope
 import com.arshapshap.wallette.App
 import dagger.Module
 import dagger.Provides

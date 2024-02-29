@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.arshapshap.core.data'
+    namespace 'com.arshapshap.wallette.core.data'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {

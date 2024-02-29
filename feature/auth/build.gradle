@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.arshapshap.feature.auth'
+    namespace 'com.arshapshap.wallette.feature.auth'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.arshapshap.feature.statistics'
+    namespace 'com.arshapshap.wallette.feature.statistics'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {

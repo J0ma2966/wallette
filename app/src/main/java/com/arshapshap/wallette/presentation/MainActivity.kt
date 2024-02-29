@@ -9,17 +9,18 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.arshapshap.common.di.findComponentDependencies
-import com.arshapshap.common.presentation.floatingButtonInterfaces.FloatingButtonListenersManager
-import com.arshapshap.common.presentation.floatingButtonInterfaces.OnFloatingButtonClickListener
+import com.arshapshap.wallette.core.common.di.findComponentDependencies
 import com.arshapshap.wallette.R
+import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.FloatingButtonListenersManager
+import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.OnFloatingButtonClickListener
 import com.arshapshap.wallette.databinding.ActivityMainBinding
 import com.arshapshap.wallette.di.main.MainComponent
 import com.arshapshap.wallette.navigation.Navigator
 import com.arshapshap.wallette.presentation.extensions.applyStyle
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), OnFloatingButtonClickListener, FloatingButtonListenersManager {
+class MainActivity : AppCompatActivity(), OnFloatingButtonClickListener,
+    FloatingButtonListenersManager {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -59,13 +60,13 @@ class MainActivity : AppCompatActivity(), OnFloatingButtonClickListener, Floatin
     override fun subscribeOnFloatingButtonClick(listener: OnFloatingButtonClickListener) {
         onFloatingButtonClickListener = listener
         binding.addFloatingButton.applyStyle(R.style.App_Custom_FloatingActionButton_Outlined)
-        binding.addFloatingButton.setImageResource(com.arshapshap.common.R.drawable.ic_done)
+        binding.addFloatingButton.setImageResource(com.arshapshap.wallette.core.common.R.drawable.ic_done)
     }
 
     override fun setDefaultOnFloatingButtonClickListener() {
         onFloatingButtonClickListener = this
         binding.addFloatingButton.applyStyle(R.style.App_Custom_FloatingActionButton)
-        binding.addFloatingButton.setImageResource(com.arshapshap.feature_settings.R.drawable.ic_plus)
+        binding.addFloatingButton.setImageResource(com.arshapshap.wallette.feature.settings.R.drawable.ic_plus)
     }
 
     override fun onFloatingButtonClick() {

@@ -1,6 +1,6 @@
 package com.arshapshap.wallette.di.app
 
-import com.arshapshap.common.di.FeatureApiHolder
+import com.arshapshap.wallette.core.common.di.FeatureApiHolder
 
 
 class FeatureHolderManager(
