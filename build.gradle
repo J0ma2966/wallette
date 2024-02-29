@@ -27,6 +27,7 @@ buildscript {
         colorPickerVersion = '1.0.2'
         swipeToRefreshVersion = '1.1.0'
         gsonVersion = '2.8.8'
+        firebaseBom = '32.7.0'
 
         gsonDep = "com.google.code.gson:gson:$gsonVersion"
         swipeToRefreshDep = "androidx.swiperefreshlayout:swiperefreshlayout:$swipeToRefreshVersion"
@@ -56,6 +57,8 @@ buildscript {
         navigationUiDep = "androidx.navigation:navigation-ui:$navControllerVersion"
         androidChartDep = "com.github.PhilJay:MPAndroidChart:$androidChartDep"
         preferenceDep = "androidx.preference:preference:$preferenceVersion"
+        firebaseBomDep = "com.google.firebase:firebase-bom:$firebaseBom"
+        firebaseAuthDep = "com.google.firebase:firebase-auth-ktx"
     }
 }
 
