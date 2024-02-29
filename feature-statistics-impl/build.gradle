@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.feature_statistics_impl'
+    namespace 'com.arshapshap.feature_statistics_impl'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {

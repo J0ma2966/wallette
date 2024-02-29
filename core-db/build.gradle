@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.core_db'
+    namespace 'com.arshapshap.core_db'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {

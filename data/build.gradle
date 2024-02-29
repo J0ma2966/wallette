@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.data'
+    namespace 'com.arshapshap.data'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {

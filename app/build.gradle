@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.wallette'
+    namespace 'com.arshapshap.wallette'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.example.wallette"
+        applicationId "com.arshapshap.wallette"
         minSdk rootProject.minSdkVersion
         targetSdk rootProject.targetSdkVersion
         versionCode rootProject.versionCode

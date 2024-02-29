@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.core_network'
+    namespace 'com.arshapshap.core_network'
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {
