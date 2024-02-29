@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1056531964744",
+    "project_id": "wallette-9fd00",
+    "storage_bucket": "wallette-9fd00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056531964744:android:46df5b1d2d66290703c97d",
+        "android_client_info": {
+          "package_name": "com.arshapshap.wallette"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNk_CzFKb2GMyOqR2aZyMelkmZAbgsBlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
