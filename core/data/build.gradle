@@ -43,6 +43,10 @@ dependencies {
     implementation project(path: ':core:db')
     implementation project(path: ':core:network')
 
+
+    implementation platform(firebaseBomDep)
+    implementation firebaseAuthDep
+
     implementation coreKtxDep
     implementation androidDep
 

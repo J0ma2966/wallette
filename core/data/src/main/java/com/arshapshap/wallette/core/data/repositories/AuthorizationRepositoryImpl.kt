@@ -7,7 +7,10 @@ import com.arshapshap.wallette.core.network.data.models.request.LoginRequestMode
 import com.arshapshap.wallette.core.network.data.models.request.RegisterRequestModel
 import com.arshapshap.wallette.core.network.data.services.AuthorizationApiService
 import com.arshapshap.wallette.core.data.mappers.AuthorizationResultMapper
+import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class AuthorizationRepositoryImpl @Inject constructor(
     private val service: AuthorizationApiService,
@@ -15,35 +18,39 @@ class AuthorizationRepositoryImpl @Inject constructor(
     private val tokenManager: TokenManager
 ) : AuthorizationRepository {
 
-    override suspend fun login(email: String, password: String): AuthorizationResult {
-        val requestModel = LoginRequestModel(
-            email = email, password = password
-        )
-        val response = service.authorize(
-            model = requestModel
-        )
-        if (response.isSuccessful == true)
-            tokenManager.saveAuthorizationToken(response.token!!)
-        return mapper.map(response)
-    }
+    override suspend fun login(email: String, password: String): AuthorizationResult =
+        suspendCoroutine { continuation ->
+            FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    continuation.resume(
+                        AuthorizationResult(
+                            isSuccessful = it.isSuccessful,
+                            errorMessage = it.exception?.message ?: "Error"
+                        )
+                    )
+                }
+        }
 
-    override suspend fun register(email: String, password: String): AuthorizationResult {
-        val requestModel = RegisterRequestModel(
-            email = email, password = password
-        )
-        val response = service.register(
-            model = requestModel
-        )
-        if (response.isSuccessful == true)
-            tokenManager.saveAuthorizationToken(response.token!!)
-        return mapper.map(response)
-    }
+    override suspend fun register(email: String, password: String): AuthorizationResult =
+        suspendCoroutine { continuation ->
+            FirebaseAuth.getInstance()
+                .createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    continuation.resume(
+                        AuthorizationResult(
+                            isSuccessful = it.isSuccessful,
+                            errorMessage = it.exception?.message ?: "Error"
+                        )
+                    )
+                }
+        }
 
     override suspend fun checkIsAuthorized(): Boolean {
-        return tokenManager.getAuthorizationToken() != null
+        return FirebaseAuth.getInstance().currentUser != null
     }
 
     override suspend fun logout() {
-        tokenManager.deleteToken()
+        FirebaseAuth.getInstance().signOut()
     }
 }
