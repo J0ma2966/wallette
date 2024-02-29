@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class TokenManagerImpl @Inject constructor(
     private val sharedPrefs: SharedPreferences
-) : com.arshapshap.wallette.core.common.data.TokenManager {
+) : TokenManager {
 
     override fun getAuthorizationToken(): String?
         = sharedPrefs.getString(TOKEN_KEY, null)

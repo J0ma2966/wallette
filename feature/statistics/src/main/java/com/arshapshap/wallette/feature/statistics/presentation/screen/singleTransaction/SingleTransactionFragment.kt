@@ -44,8 +44,8 @@ class SingleTransactionFragment : BaseFragment<SingleTransactionViewModel>(R.lay
     }
 
     private val binding by viewBinding(FragmentSingleTransactionBinding::bind)
-    private val component: com.arshapshap.wallette.feature.statistics.di.StatisticsComponent by lazy {
-        FeatureUtils.getFeature(this, com.arshapshap.wallette.feature.statistics.di.StatisticsFeatureApi::class.java)
+    private val component: StatisticsComponent by lazy {
+        FeatureUtils.getFeature(this, StatisticsFeatureApi::class.java)
     }
 
     override fun inject() {

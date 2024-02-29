@@ -6,5 +6,5 @@ interface FeatureContainer {
 
     fun releaseFeature(key: Class<*>)
 
-    fun commonApi(): com.arshapshap.wallette.core.common.di.CommonApi
+    fun commonApi(): CommonApi
 }

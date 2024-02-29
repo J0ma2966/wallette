@@ -9,16 +9,19 @@ import com.arshapshap.wallette.core.common.domain.models.enums.CategoryIcon
 import com.arshapshap.wallette.core.common.domain.models.enums.TransactionType
 import com.arshapshap.wallette.core.common.presentation.base.BaseFragment
 import com.arshapshap.wallette.core.common.presentation.base.BaseViewModel
-import com.arshapshap.wallette.core.common.presentation.extensions.*
+import com.arshapshap.wallette.core.common.presentation.extensions.getColorPrimary
+import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.FloatingButtonListenersManager
+import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.OnFloatingButtonClickListener
 import com.arshapshap.wallette.feature.settings.R
 import com.arshapshap.wallette.feature.settings.databinding.FragmentSingleCategoryBinding
 import com.arshapshap.wallette.feature.settings.di.SettingsComponent
 import com.arshapshap.wallette.feature.settings.di.SettingsFeatureApi
 import com.arshapshap.wallette.feature.settings.presentation.screen.common.IconsAdapter
-import com.arshapshap.wallette.core.common.presentation.extensions.getColorPrimary
-import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.FloatingButtonListenersManager
-import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.OnFloatingButtonClickListener
-import com.google.android.flexbox.*
+import com.google.android.flexbox.AlignItems
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 
 class SingleCategoryFragment :
     BaseFragment<SingleCategoryViewModel>(R.layout.fragment_single_category), OnFloatingButtonClickListener {

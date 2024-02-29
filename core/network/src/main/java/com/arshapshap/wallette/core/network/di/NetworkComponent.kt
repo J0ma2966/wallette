@@ -18,7 +18,7 @@ abstract class NetworkComponent : NetworkApi {
 
     @Component(
         dependencies = [
-            com.arshapshap.wallette.core.common.di.CommonApi::class
+            CommonApi::class
         ]
     )
     interface NetworkDependenciesComponent : NetworkDependencies

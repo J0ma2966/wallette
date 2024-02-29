@@ -12,8 +12,8 @@ import com.arshapshap.wallette.feature.statistics.di.StatisticsFeatureApi
 class StatisticsFragment : BaseFragment<StatisticsViewModel>(R.layout.fragment_statistics) {
 
     private val binding by viewBinding(FragmentStatisticsBinding::bind)
-    private val statisticsComponent: com.arshapshap.wallette.feature.statistics.di.StatisticsComponent by lazy {
-        FeatureUtils.getFeature(this, com.arshapshap.wallette.feature.statistics.di.StatisticsFeatureApi::class.java)
+    private val statisticsComponent: StatisticsComponent by lazy {
+        FeatureUtils.getFeature(this, StatisticsFeatureApi::class.java)
     }
 
     override fun inject() {

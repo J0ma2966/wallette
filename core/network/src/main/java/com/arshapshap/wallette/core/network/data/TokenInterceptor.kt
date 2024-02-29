@@ -8,7 +8,7 @@ import okhttp3.Response
 import javax.inject.Inject
 
 class TokenInterceptor @Inject constructor(
-    private val tokenManager: com.arshapshap.wallette.core.common.data.TokenManager
+    private val tokenManager: TokenManager
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {

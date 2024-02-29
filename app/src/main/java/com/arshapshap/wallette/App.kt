@@ -10,13 +10,13 @@ import com.arshapshap.wallette.di.app.FeatureHolderManager
 import javax.inject.Inject
 
 class App : Application(), FeatureContainer,
-    com.arshapshap.wallette.core.common.di.HasComponentDependencies {
+    HasComponentDependencies {
 
     @Inject
     lateinit var featureHolderManager: FeatureHolderManager
 
     @Inject
-    override lateinit var dependencies: com.arshapshap.wallette.core.common.di.ComponentDependenciesProvider
+    override lateinit var dependencies: ComponentDependenciesProvider
 
     private lateinit var appComponent: AppComponent
 
@@ -35,7 +35,7 @@ class App : Application(), FeatureContainer,
         featureHolderManager.releaseFeature(key)
     }
 
-    override fun commonApi(): com.arshapshap.wallette.core.common.di.CommonApi {
+    override fun commonApi(): CommonApi {
         return appComponent
     }
 }

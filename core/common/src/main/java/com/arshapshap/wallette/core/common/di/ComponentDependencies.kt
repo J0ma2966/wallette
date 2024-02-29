@@ -6,23 +6,23 @@ import kotlin.reflect.KClass
 
 interface ComponentDependencies
 
-typealias ComponentDependenciesProvider = Map<Class<out com.arshapshap.wallette.core.common.di.ComponentDependencies>, @JvmSuppressWildcards com.arshapshap.wallette.core.common.di.ComponentDependencies>
+typealias ComponentDependenciesProvider = Map<Class<out ComponentDependencies>, @JvmSuppressWildcards ComponentDependencies>
 
 interface HasComponentDependencies {
-    val dependencies: com.arshapshap.wallette.core.common.di.ComponentDependenciesProvider
+    val dependencies: ComponentDependenciesProvider
 }
 
 @MapKey
 @Target(AnnotationTarget.FUNCTION)
-annotation class ComponentDependenciesKey(val value: KClass<out com.arshapshap.wallette.core.common.di.ComponentDependencies>)
+annotation class ComponentDependenciesKey(val value: KClass<out ComponentDependencies>)
 
-inline fun <reified T : com.arshapshap.wallette.core.common.di.ComponentDependencies> Activity.findComponentDependencies(): T {
+inline fun <reified T : ComponentDependencies> Activity.findComponentDependencies(): T {
     return findComponentDependenciesProvider()[T::class.java] as T
 }
 
-fun Activity.findComponentDependenciesProvider(): com.arshapshap.wallette.core.common.di.ComponentDependenciesProvider {
+fun Activity.findComponentDependenciesProvider(): ComponentDependenciesProvider {
     val hasDaggerProviders = when (application) {
-        is com.arshapshap.wallette.core.common.di.HasComponentDependencies -> application as com.arshapshap.wallette.core.common.di.HasComponentDependencies
+        is HasComponentDependencies -> application as HasComponentDependencies
         else -> throw IllegalStateException("Can not find suitable dagger provider for $this")
     }
     return hasDaggerProviders.dependencies

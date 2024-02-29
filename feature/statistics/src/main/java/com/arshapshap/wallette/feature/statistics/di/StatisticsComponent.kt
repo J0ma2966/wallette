@@ -13,18 +13,18 @@ import dagger.Component
 
 @StatisticsScope
 @Component(
-    dependencies = [com.arshapshap.wallette.feature.statistics.di.StatisticsDependencies::class]
+    dependencies = [StatisticsDependencies::class]
 )
-interface StatisticsComponent : com.arshapshap.wallette.feature.statistics.di.StatisticsFeatureApi {
+interface StatisticsComponent : StatisticsFeatureApi {
 
     @Component.Builder
     interface Builder {
-        fun build(): com.arshapshap.wallette.feature.statistics.di.StatisticsComponent
+        fun build(): StatisticsComponent
 
-        fun withDependencies(deps: com.arshapshap.wallette.feature.statistics.di.StatisticsDependencies): com.arshapshap.wallette.feature.statistics.di.StatisticsComponent.Builder
+        fun withDependencies(deps: StatisticsDependencies): Builder
 
         @BindsInstance
-        fun router(router: StatisticsRouter): com.arshapshap.wallette.feature.statistics.di.StatisticsComponent.Builder
+        fun router(router: StatisticsRouter): Builder
     }
 
     @Component(
@@ -33,7 +33,7 @@ interface StatisticsComponent : com.arshapshap.wallette.feature.statistics.di.St
         ]
     )
     interface StatisticsDependenciesComponent :
-        com.arshapshap.wallette.feature.statistics.di.StatisticsDependencies
+        StatisticsDependencies
 
     fun inject(statisticsFragment: StatisticsFragment)
 

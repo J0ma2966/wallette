@@ -3,7 +3,5 @@ package com.arshapshap.wallette.feature.statistics.presentation.screen.statistic
 import androidx.fragment.app.Fragment
 
 class PieChartFragment : Fragment() {
-    companion object {
-
-    }
+    companion object
 }

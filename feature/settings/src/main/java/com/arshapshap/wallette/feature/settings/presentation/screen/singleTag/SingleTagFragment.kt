@@ -9,14 +9,18 @@ import com.arshapshap.wallette.core.common.di.FeatureUtils
 import com.arshapshap.wallette.core.common.domain.models.Tag
 import com.arshapshap.wallette.core.common.presentation.base.BaseFragment
 import com.arshapshap.wallette.core.common.presentation.base.BaseViewModel
-import com.arshapshap.wallette.core.common.presentation.extensions.*
+import com.arshapshap.wallette.core.common.presentation.extensions.setColor
+import com.arshapshap.wallette.core.common.presentation.extensions.setImage
+import com.arshapshap.wallette.core.common.presentation.extensions.setOnClickListener
+import com.arshapshap.wallette.core.common.presentation.extensions.setRightArrowVisible
+import com.arshapshap.wallette.core.common.presentation.extensions.setStrokeVisibility
+import com.arshapshap.wallette.core.common.presentation.extensions.setTitle
 import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.FloatingButtonListenersManager
 import com.arshapshap.wallette.core.common.presentation.floatingButtonInterfaces.OnFloatingButtonClickListener
 import com.arshapshap.wallette.feature.settings.R
 import com.arshapshap.wallette.feature.settings.databinding.FragmentSingleTagBinding
 import com.arshapshap.wallette.feature.settings.di.SettingsComponent
 import com.arshapshap.wallette.feature.settings.di.SettingsFeatureApi
-import com.google.android.flexbox.*
 import vadiole.colorpicker.ColorModel
 import vadiole.colorpicker.ColorPickerDialog
 

@@ -1,3 +1,3 @@
 package com.arshapshap.wallette.presentation
 
-interface MainRouter {}
+interface MainRouter

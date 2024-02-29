@@ -26,7 +26,7 @@ abstract class FeatureApiHolder(
         mFeatureLocker.unlock()
     }
 
-    fun commonApi(): com.arshapshap.wallette.core.common.di.CommonApi {
+    fun commonApi(): CommonApi {
         return mFeatureContainer.commonApi()
     }
 

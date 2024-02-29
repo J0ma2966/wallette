@@ -56,7 +56,7 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideOkHttpClient(interceptor: com.arshapshap.wallette.core.network.data.TokenInterceptor): OkHttpClient {
+    fun provideOkHttpClient(interceptor: TokenInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .build()

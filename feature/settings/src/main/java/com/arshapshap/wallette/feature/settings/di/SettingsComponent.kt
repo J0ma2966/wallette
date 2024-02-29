@@ -32,10 +32,10 @@ interface SettingsComponent : SettingsFeatureApi {
     interface Builder {
         fun build(): SettingsComponent
 
-        fun withDependencies(deps: SettingsDependencies): SettingsComponent.Builder
+        fun withDependencies(deps: SettingsDependencies): Builder
 
         @BindsInstance
-        fun router(router: SettingsRouter): SettingsComponent.Builder
+        fun router(router: SettingsRouter): Builder
     }
 
     @Component(

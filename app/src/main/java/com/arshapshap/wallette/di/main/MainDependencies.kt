@@ -3,7 +3,7 @@ package com.arshapshap.wallette.di.main
 import com.arshapshap.wallette.core.common.di.ComponentDependencies
 import com.arshapshap.wallette.navigation.Navigator
 
-interface MainDependencies : com.arshapshap.wallette.core.common.di.ComponentDependencies {
+interface MainDependencies : ComponentDependencies {
 
     fun navigator(): Navigator
 }
