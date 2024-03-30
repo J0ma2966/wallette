@@ -16,24 +16,38 @@ import com.arshapshap.wallette.feature.statistics.presentation.screen.transactio
 import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByTag
 import java.util.*
 import javax.inject.Inject
-import kotlin.math.absoluteValue
 
 class StatisticsInteractor @Inject constructor(
     private val accountRepository: AccountRepository,
     private val categoryRepository: CategoryRepository,
     private val tagRepository: TagRepository,
     private val transactionRepository: TransactionRepository,
+    private val settingsManager: SettingsManager
 ) {
 
-    suspend fun getTransactionGroups(sortingType: SortingType): List<TransactionGroup> {
-        val transactions = transactionRepository.getTransactions()
+    suspend fun getBalance(): Double {
+        val viewedAccount = getViewedAccount()
 
-        val groups = when (sortingType) {
-            SortingType.ByDate -> getGroupsByDate(transactions)
-            SortingType.ByCategory -> getGroupsByCategory(transactions)
-            SortingType.ByTag -> getGroupsByTag(transactions)
-        }
-        return groups
+        if (viewedAccount != null)
+            return viewedAccount.currentBalance
+
+        return accountRepository.getAccounts().sumOf { it.currentBalance }
+    }
+
+    fun getMainCurrency(): Currency
+        = settingsManager.getMainCurrency()
+
+    suspend fun getTransactionsByPeriod(): List<TransactionGroupByPeriod> {
+        val viewedAccount = getViewedAccount()
+        return transactionRepository.getTransactions()
+            .filterByViewedAccount(viewedAccount?.id)
+            .sortedBy { it.date }
+            .groupByTimePeriod(
+                timePeriod = settingsManager.getViewedTimePeriod(),
+                firstDayOfWeek = settingsManager.getFirstDayOfWeek(),
+                firstDayOfMonth = settingsManager.getFirstDayOfMonth(),
+                viewedAccountId = viewedAccount?.id
+            )
     }
 
     suspend fun createTransaction(transaction: Transaction) {
@@ -76,58 +90,13 @@ class StatisticsInteractor @Inject constructor(
         return tagRepository.getTags()
     }
 
-    private fun getGroupsByDate(transactions: List<Transaction>): List<TransactionGroupByDate> {
-        return transactions
-            .groupBy { it.date.roundToDay() }
-            .map {
-                TransactionGroupByDate(
-                    date = it.key,
-                    list = it.value.sortTransactionsByAmount(),
-                    isExpanded = it.key.roundToDay() == Calendar.getInstance().time.roundToDay()
-                )
-            }
-            .sortedByDescending { it.date }
-    }
+    private suspend fun getViewedAccount(): Account? {
+        val accountId = settingsManager.getViewedAccountId() ?: return null
 
-    private fun getGroupsByCategory(transactions: List<Transaction>): List<TransactionGroupByCategory> {
-        return transactions
-            .groupBy { Pair(it.category, it.amount >= 0) }
-            .map {
-                TransactionGroupByCategory(
-                    category = it.key.first,
-                    list = it.value.sortedByDescending { it.date }
-                )
-            }
-            .sortedWith(compareBy<TransactionGroupByCategory> { it.list.sumOf { it.amount } < 0 }
-                .thenByDescending { it.list.sumOf { it.amount }.absoluteValue })
-    }
+        val account = accountRepository.getAccountById(accountId)
+        if (account == null)
+            settingsManager.setViewedAccount(null)
 
-    private fun getGroupsByTag(transactions: List<Transaction>): List<TransactionGroupByTag> {
-        val groups = mutableMapOf<Tag?, ArrayList<Transaction>>(null to arrayListOf())
-        transactions.forEach { transaction ->
-            transaction.tags.forEach { tag ->
-                if (!groups.containsKey(tag))
-                    groups[tag] = arrayListOf()
-                groups[tag]!!.add(transaction)
-            }
-            if (transaction.tags.isEmpty())
-                groups[null]!!.add(transaction)
-        }
-        return groups
-            .filter { it.value.isNotEmpty() }
-            .map {
-                TransactionGroupByTag(
-                    tag = it.key,
-                    list = it.value.toList().sortTransactionsByAmount()
-                )
-            }
-            .sortedWith(compareBy<TransactionGroupByTag> { it.list.sumOf { it.amount } < 0 }
-                .thenByDescending { it.list.sumOf { it.amount }.absoluteValue })
-    }
-
-    private fun List<Transaction>.sortTransactionsByAmount(): List<Transaction> {
-        return this
-            .sortedWith(compareBy<Transaction> { it.amount < 0 }
-                .thenByDescending { it.amount.absoluteValue })
+        return account
     }
 }

@@ -68,7 +68,7 @@ class TransactionGroupsViewHolder(
     private fun bindByDate(group: TransactionGroupByDate) {
         with (binding) {
             dateTextView.isGone = false
-            dateTextView.text = group.date.formatToString()
+            dateTextView.text = group.date.formatDayToString()
         }
     }
 

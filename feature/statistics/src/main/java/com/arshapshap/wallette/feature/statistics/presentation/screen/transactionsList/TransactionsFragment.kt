@@ -18,6 +18,11 @@ import com.arshapshap.wallette.feature.statistics.presentation.screen.transactio
 
 class TransactionsFragment : BaseFragment<TransactionsViewModel>(R.layout.fragment_transactions_list) {
 
+    companion object {
+        const val PERIOD_START_KEY = "PERIOD_START_KEY"
+        const val PERIOD_END_KEY = "PERIOD_END_KEY"
+    }
+
     private val binding by viewBinding(FragmentTransactionsListBinding::bind)
     private val statisticsComponent: StatisticsComponent by lazy {
         FeatureUtils.getFeature(this, StatisticsFeatureApi::class.java)
@@ -27,8 +32,13 @@ class TransactionsFragment : BaseFragment<TransactionsViewModel>(R.layout.fragme
         statisticsComponent.inject(this)
     }
 
+    @Suppress("DEPRECATION")
     override fun createViewModel(): BaseViewModel
-        = statisticsComponent.transactionsViewModel().create()
+        = statisticsComponent.transactionsViewModel()
+            .create(
+                periodStart = arguments?.getSerializable(PERIOD_START_KEY) as? Date,
+                periodEnd = arguments?.getSerializable(PERIOD_END_KEY) as? Date
+            )
 
     @SuppressLint("NotifyDataSetChanged")
     override fun initViews() {
@@ -43,7 +53,7 @@ class TransactionsFragment : BaseFragment<TransactionsViewModel>(R.layout.fragme
             }
 
             refreshLayout.setOnRefreshListener {
-                viewModel.refresh()
+                viewModel.loadData()
 
                 refreshLayout.isRefreshing = false
             }
@@ -53,6 +63,7 @@ class TransactionsFragment : BaseFragment<TransactionsViewModel>(R.layout.fragme
     @SuppressLint("NotifyDataSetChanged")
     override fun subscribe() {
         with (viewModel) {
+            loadData()
             stateLiveData.observe(viewLifecycleOwner) {
                 (binding.listRecyclerView.adapter as TransactionGroupsAdapter).setList(it.groups, it.sortingType)
 

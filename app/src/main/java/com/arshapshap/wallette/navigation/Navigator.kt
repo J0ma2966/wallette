@@ -30,6 +30,16 @@ class Navigator : MainRouter, StatisticsRouter, AuthorizationRouter, SettingsRou
         navController?.navigate(R.id.transactionsFragment)
     }
 
+    override fun openTransactionsByPeriod(start: Date?, end: Date?) {
+        navController?.navigate(
+            resId = R.id.transactionsFragment,
+            args = Bundle().apply {
+                putSerializable(TransactionsFragment.PERIOD_START_KEY, start)
+                putSerializable(TransactionsFragment.PERIOD_END_KEY, end)
+            }
+        )
+    }
+
     override fun openLoginPage() {
         navController?.navigate(R.id.loginFragment)
     }
@@ -39,12 +49,11 @@ class Navigator : MainRouter, StatisticsRouter, AuthorizationRouter, SettingsRou
     }
 
     override fun openStatistics() {
-        navController?.navigate(R.id.transactionsFragment)
+        navController?.navigate(R.id.statisticsFragment)
     }
 
     override fun close() {
         navController?.popBackStack()
-        refresh()
     }
 
     override fun openAccounts() {

@@ -19,7 +19,7 @@ class TransactionsViewHolder(
     fun onBind(transaction: Transaction) {
         with (binding) {
             if (sortingType == SortingType.ByCategory)
-                nameTextView.text = transaction.date.formatToString()
+                nameTextView.text = transaction.date.formatDayToString()
             else
                 nameTextView.text = transaction.category?.name ?: binding.root.context.getString(R.string.no_category)
             groupCommentTextView.text = transaction.description
