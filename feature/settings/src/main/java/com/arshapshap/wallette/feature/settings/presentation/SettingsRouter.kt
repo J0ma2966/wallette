@@ -20,7 +20,7 @@ interface SettingsRouter {
 
     fun openTransferCreating()
 
-    fun openLoginPage()
+    fun openAuthorizationPage()
 
     fun close()
 }

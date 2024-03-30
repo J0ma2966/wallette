@@ -1,7 +1,7 @@
-package com.example.feature_statistics_impl.domain.models
+package com.arshapshap.wallette.feature.statistics.domain.models
 
-import com.example.common.domain.models.Category
-import com.example.common.domain.models.Transaction
+import com.arshapshap.wallette.core.common.domain.models.Category
+import com.arshapshap.wallette.core.common.domain.models.Transaction
 
 data class TransactionGroupByCategory(
     val category: Category?,

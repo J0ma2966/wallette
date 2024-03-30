@@ -1,16 +1,16 @@
-package com.example.feature_statistics_impl.domain
+package com.arshapshap.wallette.feature.statistics.domain
 
-import com.example.common.data.SettingsManager
-import com.example.common.domain.models.Account
-import com.example.common.domain.repositories.AccountRepository
-import com.example.common.domain.repositories.TransactionRepository
-import com.example.common.presentation.extensions.between
-import com.example.feature_statistics_impl.domain.models.TransactionGroup
-import com.example.feature_statistics_impl.domain.utils.filterByViewedAccount
-import com.example.feature_statistics_impl.domain.utils.groupByCategory
-import com.example.feature_statistics_impl.domain.utils.groupByDate
-import com.example.feature_statistics_impl.domain.utils.groupByTag
-import com.example.feature_statistics_impl.presentation.screen.transactionsList.SortingType
+import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.SortingType
+import com.arshapshap.wallette.core.common.data.SettingsManager
+import com.arshapshap.wallette.core.common.domain.models.Account
+import com.arshapshap.wallette.core.common.domain.repositories.AccountRepository
+import com.arshapshap.wallette.core.common.domain.repositories.TransactionRepository
+import com.arshapshap.wallette.core.common.presentation.extensions.between
+import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroup
+import com.arshapshap.wallette.feature.statistics.domain.utils.filterByViewedAccount
+import com.arshapshap.wallette.feature.statistics.domain.utils.groupByCategory
+import com.arshapshap.wallette.feature.statistics.domain.utils.groupByDate
+import com.arshapshap.wallette.feature.statistics.domain.utils.groupByTag
 import java.util.*
 import javax.inject.Inject
 

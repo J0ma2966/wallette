@@ -1,7 +1,8 @@
-package com.example.feature_statistics_impl.domain.models
+package com.arshapshap.wallette.feature.statistics.domain.models
 
-import com.example.common.domain.models.Category
-import com.example.common.domain.models.enums.TransactionType
+import com.arshapshap.wallette.core.common.domain.models.Category
+import com.arshapshap.wallette.core.common.domain.models.enums.TransactionType
+
 
 data class TransactionShortInfo(
     val amount: Double,

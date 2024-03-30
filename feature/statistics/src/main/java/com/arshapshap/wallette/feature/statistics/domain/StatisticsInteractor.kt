@@ -1,20 +1,18 @@
 package com.arshapshap.wallette.feature.statistics.domain
 
+import com.arshapshap.wallette.core.common.data.SettingsManager
 import com.arshapshap.wallette.core.common.domain.models.Account
 import com.arshapshap.wallette.core.common.domain.models.Category
 import com.arshapshap.wallette.core.common.domain.models.Tag
 import com.arshapshap.wallette.core.common.domain.models.Transaction
+import com.arshapshap.wallette.core.common.domain.models.enums.Currency
 import com.arshapshap.wallette.core.common.domain.repositories.AccountRepository
 import com.arshapshap.wallette.core.common.domain.repositories.CategoryRepository
 import com.arshapshap.wallette.core.common.domain.repositories.TagRepository
 import com.arshapshap.wallette.core.common.domain.repositories.TransactionRepository
-import com.arshapshap.wallette.core.common.presentation.extensions.roundToDay
-import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.SortingType
-import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroup
-import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByCategory
-import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByDate
-import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByTag
-import java.util.*
+import com.arshapshap.wallette.feature.statistics.domain.models.TransactionGroupByPeriod
+import com.arshapshap.wallette.feature.statistics.domain.utils.filterByViewedAccount
+import com.arshapshap.wallette.feature.statistics.domain.utils.groupByTimePeriod
 import javax.inject.Inject
 
 class StatisticsInteractor @Inject constructor(

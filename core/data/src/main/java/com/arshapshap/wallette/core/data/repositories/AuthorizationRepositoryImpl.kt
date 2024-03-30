@@ -3,8 +3,6 @@ package com.arshapshap.wallette.core.data.repositories
 import com.arshapshap.wallette.core.common.data.TokenManager
 import com.arshapshap.wallette.core.common.domain.models.network.AuthorizationResult
 import com.arshapshap.wallette.core.common.domain.repositories.AuthorizationRepository
-import com.arshapshap.wallette.core.network.data.models.request.LoginRequestModel
-import com.arshapshap.wallette.core.network.data.models.request.RegisterRequestModel
 import com.arshapshap.wallette.core.network.data.services.AuthorizationApiService
 import com.arshapshap.wallette.core.data.mappers.AuthorizationResultMapper
 import com.google.firebase.auth.FirebaseAuth

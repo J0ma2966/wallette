@@ -14,7 +14,9 @@ import com.arshapshap.wallette.feature.settings.presentation.screen.singleTag.Si
 import com.arshapshap.wallette.feature.statistics.presentation.StatisticsRouter
 import com.arshapshap.wallette.feature.statistics.presentation.screen.singleTransaction.SingleTransactionFragment
 import com.arshapshap.wallette.R
+import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.TransactionsFragment
 import com.arshapshap.wallette.presentation.MainRouter
+import java.util.Date
 
 class Navigator : MainRouter, StatisticsRouter, AuthorizationRouter, SettingsRouter {
 
@@ -40,6 +42,10 @@ class Navigator : MainRouter, StatisticsRouter, AuthorizationRouter, SettingsRou
         )
     }
 
+    override fun openAuthorizationPage() {
+        navController?.navigate(R.id.authorization)
+    }
+
     override fun openLoginPage() {
         navController?.navigate(R.id.loginFragment)
     }
@@ -49,7 +55,7 @@ class Navigator : MainRouter, StatisticsRouter, AuthorizationRouter, SettingsRou
     }
 
     override fun openStatistics() {
-        navController?.navigate(R.id.statisticsFragment)
+        navController?.navigate(R.id.statistics)
     }
 
     override fun close() {
@@ -153,11 +159,5 @@ class Navigator : MainRouter, StatisticsRouter, AuthorizationRouter, SettingsRou
                 .setLaunchSingleTop(true)
                 .build()
         )
-    }
-
-    override fun refresh(){
-        val id = navController?.currentDestination?.id ?: return
-        navController?.popBackStack(id,true)
-        navController?.navigate(id)
     }
 }

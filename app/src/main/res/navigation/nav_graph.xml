@@ -54,6 +54,21 @@
         android:id="@+id/settings"
         app:startDestination="@id/settingsFragment">
         <fragment
+            android:id="@+id/settingsFragment"
+            android:name="com.arshapshap.wallette.feature.settings.presentation.screen.settings.SettingsFragment"
+            android:label="@string/settings_fragment_name"
+            tools:layout="@layout/fragment_settings" >
+            <action
+                android:id="@+id/action_settingsFragment_to_tagsFragment"
+                app:destination="@id/tagsFragment" />
+            <action
+                android:id="@+id/action_settingsFragment_to_categoriesFragment"
+                app:destination="@id/categoriesFragment" />
+            <action
+                android:id="@+id/action_settingsFragment_to_accountsFragment"
+                app:destination="@id/accountsFragment" />
+        </fragment>
+        <fragment
             android:id="@+id/singleTagFragment"
             android:name="com.arshapshap.wallette.feature.settings.presentation.screen.singleTag.SingleTagFragment"
             android:label="@string/single_tag_fragment_name"
@@ -72,21 +87,6 @@
             android:name="com.arshapshap.wallette.feature.settings.presentation.screen.singleAccount.SingleAccountFragment"
             android:label="@string/single_account_fragment_name"
             tools:layout="@layout/fragment_single_account" />
-        <fragment
-            android:id="@+id/settingsFragment"
-            android:name="com.arshapshap.wallette.feature.settings.presentation.screen.settings.SettingsFragment"
-            android:label="@string/settings_fragment_name"
-            tools:layout="@layout/fragment_settings" >
-            <action
-                android:id="@+id/action_settingsFragment_to_tagsFragment"
-                app:destination="@id/tagsFragment" />
-            <action
-                android:id="@+id/action_settingsFragment_to_categoriesFragment"
-                app:destination="@id/categoriesFragment" />
-            <action
-                android:id="@+id/action_settingsFragment_to_accountsFragment"
-                app:destination="@id/accountsFragment" />
-        </fragment>
         <fragment
             android:id="@+id/singleCategoryFragment"
             android:name="com.arshapshap.wallette.feature.settings.presentation.screen.singleCategory.SingleCategoryFragment"

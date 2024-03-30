@@ -1,4 +1,4 @@
-package com.example.feature_statistics_impl.presentation.screen.statistics.viewPager2
+package com.arshapshap.wallette.feature.statistics.presentation.screen.statistics.viewPager2
 
 import androidx.annotation.ColorInt
 

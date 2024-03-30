@@ -1,8 +1,23 @@
 package com.arshapshap.wallette.feature.statistics.presentation.screen.statistics.viewPager2
 
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.arshapshap.wallette.feature.statistics.presentation.screen.statistics.StatisticsFragment
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.annotation.ColorInt
+import androidx.core.text.toSpannable
+import androidx.recyclerview.widget.RecyclerView
+import com.arshapshap.wallette.core.common.domain.models.enums.Currency
+import com.arshapshap.wallette.core.common.presentation.extensions.formatAsBalance
+import com.arshapshap.wallette.feature.statistics.databinding.ItemPieChartBinding
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
 
 class PieChartAdapter(
     private var dataSet: List<PieChartPeriod> = listOf(),

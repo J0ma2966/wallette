@@ -1,6 +1,6 @@
-package com.example.feature_statistics_impl.domain.models
+package com.arshapshap.wallette.feature.statistics.domain.models
 
-import com.example.common.domain.models.Transaction
+import com.arshapshap.wallette.core.common.domain.models.Transaction
 
 interface TransactionGroup {
     val list: List<Transaction>

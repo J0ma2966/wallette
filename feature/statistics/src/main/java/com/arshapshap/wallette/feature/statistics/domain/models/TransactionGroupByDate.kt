@@ -1,6 +1,6 @@
-package com.example.feature_statistics_impl.domain.models
+package com.arshapshap.wallette.feature.statistics.domain.models
 
-import com.example.common.domain.models.Transaction
+import com.arshapshap.wallette.core.common.domain.models.Transaction
 import java.util.*
 
 data class TransactionGroupByDate(

@@ -1,7 +1,14 @@
 package com.arshapshap.wallette.feature.statistics.presentation.screen.statistics
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.arshapshap.wallette.core.common.domain.models.enums.Currency
 import com.arshapshap.wallette.core.common.presentation.base.BaseViewModel
+import com.arshapshap.wallette.core.common.presentation.extensions.between
+import com.arshapshap.wallette.feature.statistics.domain.StatisticsInteractor
 import com.arshapshap.wallette.feature.statistics.presentation.StatisticsRouter
+import com.arshapshap.wallette.feature.statistics.domain.models.TransactionGroupByPeriod
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.launch
@@ -13,7 +20,7 @@ class StatisticsViewModel @AssistedInject constructor(
 ) : BaseViewModel() {
 
     private val _dataLiveData = MutableLiveData<Data>()
-    val dataLiveData : LiveData<Data>
+    val dataLiveData: LiveData<Data>
         get() = _dataLiveData
 
     private val _openedPeriodIndexLiveData = MutableLiveData<Int>()
@@ -47,7 +54,8 @@ class StatisticsViewModel @AssistedInject constructor(
             val now = Calendar.getInstance()
             groups.forEachIndexed { index, it ->
                 if (now.time.between(it.periodStart, it.periodEnd)
-                    || index == groups.size - 1) {
+                    || index == groups.size - 1
+                ) {
                     _openedPeriodIndexLiveData.postValue(index)
                     return@forEachIndexed
                 }

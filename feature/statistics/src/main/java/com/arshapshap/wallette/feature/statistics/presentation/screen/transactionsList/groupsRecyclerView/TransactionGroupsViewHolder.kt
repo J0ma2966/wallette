@@ -13,7 +13,7 @@ import com.arshapshap.wallette.feature.statistics.R
 import com.arshapshap.wallette.feature.statistics.databinding.ItemGroupBinding
 import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.SortingType
 import com.arshapshap.wallette.core.common.presentation.extensions.formatAsBalance
-import com.arshapshap.wallette.core.common.presentation.extensions.formatToString
+import com.arshapshap.wallette.core.common.presentation.extensions.formatDayToString
 import com.arshapshap.wallette.core.common.presentation.extensions.getColorBySign
 import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroup
 import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByCategory

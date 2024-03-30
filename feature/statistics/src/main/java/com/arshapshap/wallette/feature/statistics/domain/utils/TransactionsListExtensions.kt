@@ -1,14 +1,18 @@
-package com.example.feature_statistics_impl.domain.utils
+package com.arshapshap.wallette.feature.statistics.domain.utils
 
-import com.example.common.domain.models.Tag
-import com.example.common.domain.models.Transaction
-import com.example.common.domain.models.enums.DayOfWeek
-import com.example.common.domain.models.enums.TimePeriod
-import com.example.common.domain.models.enums.TransactionType
-import com.example.common.presentation.extensions.between
-import com.example.common.presentation.extensions.copy
-import com.example.common.presentation.extensions.roundToDay
-import com.example.feature_statistics_impl.domain.models.*
+import com.arshapshap.wallette.core.common.domain.models.Transaction
+import com.arshapshap.wallette.core.common.domain.models.enums.DayOfWeek
+import com.arshapshap.wallette.core.common.domain.models.enums.TimePeriod
+import com.arshapshap.wallette.core.common.domain.models.enums.TransactionType
+import com.arshapshap.wallette.core.common.presentation.extensions.copy
+import com.arshapshap.wallette.core.common.domain.models.Tag
+import com.arshapshap.wallette.core.common.presentation.extensions.between
+import com.arshapshap.wallette.core.common.presentation.extensions.roundToDay
+import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByCategory
+import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByDate
+import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroupByTag
+import com.arshapshap.wallette.feature.statistics.domain.models.TransactionGroupByPeriod
+import com.arshapshap.wallette.feature.statistics.domain.models.TransactionShortInfo
 import java.util.*
 import kotlin.math.absoluteValue
 

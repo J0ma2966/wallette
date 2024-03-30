@@ -1,4 +1,4 @@
-package com.example.feature_statistics_impl.domain.models
+package com.arshapshap.wallette.feature.statistics.domain.models
 
 import java.util.*
 

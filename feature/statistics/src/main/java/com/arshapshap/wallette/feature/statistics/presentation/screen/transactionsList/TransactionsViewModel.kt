@@ -6,8 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.arshapshap.wallette.core.common.domain.models.Transaction
 import com.arshapshap.wallette.core.common.presentation.base.BaseViewModel
 import com.arshapshap.wallette.feature.statistics.presentation.StatisticsRouter
-import com.arshapshap.wallette.feature.statistics.domain.StatisticsInteractor
 import com.arshapshap.wallette.feature.statistics.presentation.screen.transactionsList.groupsRecyclerView.transactionGroups.TransactionGroup
+import com.arshapshap.wallette.feature.statistics.domain.TransactionsInteractor
+import com.arshapshap.wallette.feature.statistics.domain.utils.sum
+import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.launch

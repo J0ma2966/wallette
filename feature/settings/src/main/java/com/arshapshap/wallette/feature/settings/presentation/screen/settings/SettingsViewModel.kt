@@ -55,7 +55,7 @@ class SettingsViewModel @AssistedInject constructor(
     fun enableSynchronization() {
         if (_isSynchronized.value == true)
             return
-        router.openLoginPage()
+        router.openAuthorizationPage()
     }
 
     fun disableSynchronization() {

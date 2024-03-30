@@ -4,7 +4,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.arshapshap.wallette.core.common.domain.models.Transaction
 import com.arshapshap.wallette.core.common.presentation.extensions.formatAsBalance
-import com.arshapshap.wallette.core.common.presentation.extensions.formatToString
+import com.arshapshap.wallette.core.common.presentation.extensions.formatDayToString
 import com.arshapshap.wallette.core.common.presentation.extensions.getColorBySign
 import com.arshapshap.wallette.feature.statistics.R
 import com.arshapshap.wallette.feature.statistics.databinding.ItemExpandableTransactionBinding
