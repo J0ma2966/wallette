@@ -5,20 +5,21 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven("https://jitpack.io")
     }
 }
 rootProject.name = "Wallette"
-include ':app'
-include ':feature:statistics'
-include ':feature:auth'
-include ':feature:settings'
-include ':core:common'
-include ':core:db'
-include ':core:data'
-include ':core:network'
+include(":app")
+include(":feature:statistics")
+include(":feature:auth")
+include(":feature:settings")
+include(":core:common")
+include(":core:db")
+include(":core:data")
+include(":core:network")
