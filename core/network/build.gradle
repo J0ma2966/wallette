@@ -11,8 +11,6 @@ android {
     defaultConfig {
         minSdk rootProject.minSdkVersion
         targetSdk rootProject.targetSdkVersion
-        versionCode rootProject.versionCode
-        versionName rootProject.versionName
 
         buildConfigField("String", "WALLETTE_BASE_URL", WALLETTE_BASE_URL)
 
