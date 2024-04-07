@@ -24,7 +24,6 @@ colorpicker = "1.0.2"
 swipetorefreshlayout = "1.1.0"
 gson = "2.10.1"
 firebase-bom = "32.8.0"
-kapt = "1.9.21-1.0.16"
 
 [libraries]
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }

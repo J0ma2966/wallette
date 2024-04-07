@@ -18,7 +18,9 @@
     </style>
 
     <style name="App.Custom.BottomAppBar" parent="ThemeOverlay.Material3.BottomAppBar">
-        <item name="fabCradleMargin">20dp</item>
+        <item name="fabCradleMargin">30dp</item>
+        <item name="fabAlignmentMode">center</item>
+        <item name="fabAnchorMode">cradle</item>
     </style>
 
     <style name="App.Custom.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
