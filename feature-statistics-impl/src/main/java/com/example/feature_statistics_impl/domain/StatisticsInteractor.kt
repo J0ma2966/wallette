@@ -38,7 +38,7 @@ class StatisticsInteractor @Inject constructor(
 
     suspend fun createTransaction(transaction: Transaction) {
         transactionRepository.createTransaction(transaction)
-
+        
         val account = transaction.account
         accountRepository.updateAccount(account.copy(
             currentBalance = account.currentBalance + transaction.amount
@@ -46,6 +46,7 @@ class StatisticsInteractor @Inject constructor(
     }
 
     suspend fun editTransaction(transaction: Transaction) {
+        if (account.currentBalance < 0) return
         val oldAmount = transactionRepository.getTransactionById(transaction.id).amount
         transactionRepository.updateTransaction(transaction)
 
